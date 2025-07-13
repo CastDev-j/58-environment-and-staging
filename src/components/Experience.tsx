@@ -46,7 +46,7 @@ export const Experience = () => {
 
       {/* Canvas for 3D rendering */}
       <Canvas
-        className="bg-transparent rounded-lg"
+        className="bg-transparent"
         gl={{
           outputColorSpace: colorSpaceMap[colorSpace],
         }}
@@ -78,7 +78,7 @@ export const Experience = () => {
 
         {/* Shadow Testing */}
         <Shadows />
-        
+
       </Canvas>
     </div>
   );
