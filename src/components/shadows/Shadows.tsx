@@ -4,7 +4,7 @@ import { useControls } from "leva";
 export const Shadows = () => {
   const { blur, color, opacity } = useControls("Contact Shadows", {
     color: {
-      value: "#1d8f75",
+      value: "#000000",
       label: "Shadow Color",
     },
     opacity: {
@@ -46,7 +46,7 @@ export const Shadows = () => {
         </AccumulativeShadows> */}
 
       <ContactShadows
-        position={[0, -0.99, 0]}
+        position={[0, 0, 0]}
         scale={30}
         resolution={512}
         far={5}

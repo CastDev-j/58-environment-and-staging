@@ -1,11 +1,9 @@
 import { Canvas } from "@react-three/fiber";
 import { Models } from "./Models";
-import { OrbitControls } from "@react-three/drei";
+import { OrbitControls, Stage } from "@react-three/drei";
 import { Leva, useControls } from "leva";
 import { LinearSRGBColorSpace, SRGBColorSpace, NoColorSpace } from "three";
 import { Perf } from "r3f-perf";
-import { Lights } from "./lights/Lighs";
-import { Shadows } from "./shadows/Shadows";
 
 const colorSpaceMap = {
   srgb: SRGBColorSpace,
@@ -14,17 +12,23 @@ const colorSpaceMap = {
 };
 
 export const Experience = () => {
-  const { bgColor, colorSpace } = useControls("Environment", {
-    bgColor: {
-      value: "ivory",
-      label: "BackGround Color",
+  const { bgColor, colorSpace } = useControls(
+    "Environment",
+    {
+      bgColor: {
+        value: "ivory",
+        label: "BackGround Color",
+      },
+      colorSpace: {
+        value: "srgb",
+        options: Object.keys(colorSpaceMap),
+        label: "Color Space",
+      },
     },
-    colorSpace: {
-      value: "srgb",
-      options: Object.keys(colorSpaceMap),
-      label: "Color Space",
-    },
-  }) as {
+    {
+      collapsed: true,
+    }
+  ) as {
     bgColor: string;
     colorSpace: keyof typeof colorSpaceMap;
   };
@@ -57,13 +61,13 @@ export const Experience = () => {
         // shadows
       >
         {/* Models */}
-        <Models />
+        {/* <Models /> */}
 
         {/* Controls */}
         <OrbitControls makeDefault enablePan={false} />
 
         {/* Lights */}
-        <Lights />
+        {/* <Lights /> */}
 
         {/* Performance Monitor */}
         <Perf
@@ -77,8 +81,21 @@ export const Experience = () => {
         <color attach={"background"} args={[bgColor]} />
 
         {/* Shadow Testing */}
-        <Shadows />
+        {/* <Shadows /> */}
 
+        {/* Stage */}
+        <Stage
+          shadows={{
+            type: "contact",
+            opacity: 0.2,
+            blur: 0.3,
+          }}
+          environment={'sunset'}
+          preset={'portrait'}
+          intensity={2.0}
+        >
+          <Models />
+        </Stage>
       </Canvas>
     </div>
   );

@@ -1,5 +1,5 @@
 import { Box } from "./geometries/Box";
-import { Plane } from "./geometries/Plane";
+// import { Plane } from "./geometries/Plane";
 import { Sphere } from "./geometries/Sphere";
 
 export const Models = () => {
@@ -8,11 +8,11 @@ export const Models = () => {
     <group>
 
 
-      <Box position={[2, 0.25, 0]} />
+      <Box position={[2, 1.5, 0]} />
     
-      <Sphere position={[-2, 0.25, 0]} />
+      <Sphere position={[-2, 1.25, 0]} />
 
-      <Plane position={[0, -1, 0]} />
+      {/* <Plane position={[0, 0, 0]} /> */}
 
     </group>
   );
