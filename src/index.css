@@ -1,0 +1,18 @@
+@import "tailwindcss";
+@font-face {
+    font-family: 'PauLithFont1';
+    src: url('/PauLithFont1-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+
+body::-webkit-scrollbar {
+    display: none;
+}
